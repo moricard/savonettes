@@ -79,6 +79,11 @@ var BaseFat = db.model('BaseFat', BaseFatSchema),
 // Controllers
 // - - - - - -
 
+// returns the front page of the app
+//app.get('/', function (req, res) {
+//    
+//});
+
 // returns the status of the api, with version
 app.get('/api', function (req, res) {
     res.send('Status: up and running, version ' + version);
