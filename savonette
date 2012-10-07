@@ -1,3 +1,4 @@
 #!/bin/bash
 
+mongod run&
 /usr/local/share/npm/bin/nodemon server.js
