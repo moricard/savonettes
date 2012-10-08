@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app='savonette'>
  <head>
 <meta charset="utf-8">
 <title>API index</title>
 <link href="css/bootstrap.css" rel="stylesheet">
 <script src="lib/angular.js"></script>
-<script type="text/javascript" src="js/fats.js"></script>
-
+<script src="lib/angular-resource.js"></script>
+<!--script type="text/javascript" src="js/fats.js"></script-->
+<script type="text/javascript" src="js/app.js"></script>
 </head>
-<body>
+<body style="margin-top: 60px;">
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -32,70 +33,39 @@
       </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid" ng-controller='FatsController'>
       <div class="row-fluid">
         <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li class="active"><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-            </ul>
-          </div><!--/.well -->
+        <div ng-include src="'partials/fatlist.html'">
+        </div>
         </div><!--/span-->
         <div class="span9">
-         <div class="row-fluid"ng-controller='FatsController'>
-            <div class="span6" >
-              <h2>Ajouter Base</h2>
-                <form class="form" action="/api/fats" method="post">
+            <div class="row-fluid">
+           <div class="span4" >
+            <h2>Ajouter Base</h2>
+            <form class="form" ng-model="fat"> 
                 <label>Nom</label>
-                    <input name="name" value="" />
+                    <input ng-model="fat.name" name="name" value="" />
                 <label>Indice de saponification</label>
-                    <input type="number" name="SAPValue" value="" />
+                    <input type="number" ng-model="fat.SAPValue" name="SAPValue" value="" />
                 <label>description</label>
-                    <input type="text" name="description" value="" />
-                    <input type="checkbox" name="available" value="" />
+                    <input type="text-area" name="description" ng-model="fat.description" value="" />
+                    <input type="checkbox" name="available" ng-model="fat.available" value="" />
                 <label>quantité</label>
-                    <input type="number" name="quantity" value="" />
-                    <input type="submit" class="btn" value="Ajouter" name="" />
-                </form>
-            </div><!--/span-->
-            <div class="span6">
-              <h2>Bases disponibles</h2>
-              <li ng-repeat="fat in fats">
-                  {{fat.name}}, {{fat.SAPValue}}, {{fat.description}},
-                  {{fat.quantity}} 
-              </li> 
-            </div><!--/span-->
-         </div><!--/row-->
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-        </div><!--/span-->
-      </div><!--/row-->
+                    <input type="number" name="quantity" ng-model="fat.quantity" value="" />
+                    <button class="btn" name="" ng-click="save()">Save</button>
+            </form>
 
+                    </div>
+                    <div class="span4" >
+<h3>{{fat.name}}</h3>
+<p>{{fat.description}}</p>
+            </div>
+         </div>
       <hr>
 
       <footer>
-        <p>&copy; Company 2012</p>
+        <p>Some footer... 2012</p>
       </footer>
 
     </div><!--/.fluid-container-->

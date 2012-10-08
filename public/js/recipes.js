@@ -1,0 +1,3 @@
+function RecipesListCtrl($scope, $http){
+
+}

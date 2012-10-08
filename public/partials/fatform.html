@@ -1,0 +1,14 @@
+<h2>Ajouter Base</h2>
+<form class="form" ng-model="fat"> 
+    <label>Nom</label>
+        <input ng-model="fat.name" name="name" value="" />
+    <label>Indice de saponification</label>
+        <input type="number" ng-model="fat.SAPValue" name="SAPValue" value="" />
+    <label>description</label>
+        <input type="text" name="description" ng-model="fat.description" value="" />
+        <input type="checkbox" name="available" ng-model="fat.available" value="" />
+    <label>quantité</label>
+        <input type="number" name="quantity" ng-model="fat.quantity" value="" />
+        <button class="btn" name="" ng-click="save()">Save</button>
+</form>
+
