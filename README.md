@@ -1,7 +1,7 @@
 savonettes
 ==========
 
-Requirements
+Dependencies
 ------------
 
 * node.js
