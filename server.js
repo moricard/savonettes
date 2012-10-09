@@ -33,10 +33,18 @@ var NaOH = {name: 'NaOH', factor: 1.4025};
 
 var BaseFatSchema = new Schema({
     name: String,
-    SAPValue: Number,
     description: String,
-    available: Boolean,
-    quantity: Number
+    SAPValue: Number,
+    acids: {
+        lauric:     {low: Number, high: Number},
+        linoleic:   {low: Number, high: Number},
+        myristic:   {low: Number, high: Number},
+        oleic:      {low: Number, high: Number},
+        palmitic:   {low: Number, high: Number},
+        ricinoleic: {low: Number, high: Number},
+        stearic:    {low: Number, high: Number},
+        iodine:     {low: Number, high: Number},
+    }
 });
 
 var EssentialOilSchema = new Schema({
@@ -111,8 +119,7 @@ app.post('/api/fats', function (req, res) {
         name : req.body.name,
         SAPValue: req.body.SAPValue,
         description: req.body.description,
-        available: req.body.available,
-        quantity: req.body.quantity
+        acids: req.body.acids
     });
     fat.save(function (err) {
         if (!err) {
@@ -141,8 +148,7 @@ app.put('/api/fats/:id', function (req, res) {
         fat.name = req.body.name;
         fat.SAPValue = req.body.SAPValue;
         fat.description = req.body.description;
-        fat.available = req.body.available;
-        fat.quantity = req.body.quantity;
+        fat.acids = req.body.acids;
         return fat.save(function (err) {
             if (!err) {
                 console.log("Updated fat with id: " + fat._id);

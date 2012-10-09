@@ -1,2 +1,22 @@
-<h3>{{fat.name}}</h3>
-<p>{{fat.description}}</p>
+<div class="container-fluid" ng-controller='FatsController'>
+    <div class="row-fluid">
+        
+        <div class="span3">
+            <div ng-include src="'partials/fatlist.html'"></div>
+        </div>
+
+        <div class="span9">
+            <div class="row-fluid">
+                <h2>{{fat.name}}</h2>
+                <ul>
+                    <li ng-repeat="acid in fat.acids">{{acid.name}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <footer>
+        <p>Some footer... 2012</p>
+    </footer>
+</div>
+

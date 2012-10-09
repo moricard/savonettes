@@ -1,36 +1,170 @@
 <div class="container-fluid" ng-controller='FatsController'>
     <div class="row-fluid">
-    <div class="span3">
-    <div ng-include src="'partials/fatlist.html'">
+        
+        <div class="span3">
+            <div ng-include src="'partials/fatlist.html'"></div>
+        </div>
+
+        <div class="span9">
+            <div class="row-fluid">
+                <h2 ng-hide="fat._id">New Fat</h2>
+                <h2 ng-show="fat._id">Edit {{fat.name}}</h2>
+                    <form class="form-horizontal" ng-model="fat"> 
+
+                        <div class="control-group">
+                            <label class="control-label" for="name">Nom</label>
+                            <div class="controls">
+                                <input ng-model="fat.name" name="name" value="" />
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                        <label class="control-label" for="description">Description</label>
+                            <div class="controls">
+                            <textarea rows="3" type="text" name="description"
+                            ng-model="fat.description" value="" ></textarea>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                        <label class="control-label" for="lauric.low">Lauric acid</label>
+                            <div class="controls">
+                        <div class="input-prepend">
+                            <span class="add-on">%</span>
+                            <input class="input-mini" type="number" ng-model="fat.acids.lauric.low"
+                            name="lauric.low" value="" placeholder="low" />
+                            <input class="input-mini" type="number" ng-model="fat.acids.lauric.high"
+                            name="lauric.high" value="" placeholder="high"/>
+                        </div>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                        <label class="control-label" for="linoleic.low">Linoleic acid</label>
+                            <div class="controls">
+                                <div class="input-prepend">
+                                    <span class="add-on">%</span>
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.linoleic.low"
+                                    name="linoleic.low" value="" placeholder="low" />
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.linoleic.high"
+                                    name="linoleic.high" value="" placeholder="high"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                        <label class="control-label" for="myristic.low">Myristic acid</label>
+                            <div class="controls">
+                                <div class="input-prepend">
+                                    <span class="add-on">%</span>
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.myristic.low"
+                                    name="myristic.low" value="" placeholder="low" />
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.myristic.high"
+                                    name="myristic.high" value="" placeholder="high"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                        <label class="control-label" for="oleic.low">Oleic acid</label>
+                            <div class="controls">
+                                <div class="input-prepend">
+                                    <span class="add-on">%</span>
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.oleic.low"
+                                    name="oleic.low" value="" placeholder="low" />
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.oleic.high"
+                                    name="oleic.high" value="" placeholder="high"/>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="control-group">
+                        <label class="control-label" for="palmitic.low">Palmitic acid</label>
+                            <div class="controls">
+                                <div class="input-prepend">
+                                    <span class="add-on">%</span>
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.palmitic.low"
+                                    name="palmitic.low" value="" placeholder="low" />
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.palmitic.high"
+                                    name="palmitic.high" value="" placeholder="high"/>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="control-group">
+                        <label class="control-label" for="ricinoleic.low">Ricinoleic acid</label>
+                            <div class="controls">
+                                <div class="input-prepend">
+                                    <span class="add-on">%</span>
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.ricinoleic.low"
+                                    name="ricinoleic.low" value="" placeholder="low" />
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.ricinoleic.high"
+                                    name="ricinoleic.high" value="" placeholder="high"/>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="control-group">
+                        <label class="control-label" for="stearic.low">Stearic acid</label>
+                            <div class="controls">
+                                <div class="input-prepend">
+                                    <span class="add-on">%</span>
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.stearic.low"
+                                    name="stearic.low" value="" placeholder="low" />
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.stearic.high"
+                                    name="stearic.high" value="" placeholder="high"/>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="control-group">
+                        <label class="control-label" for="palmitic.low">Iodine</label>
+                            <div class="controls">
+                                <div class="input-prepend">
+                                    <span class="add-on"></span>
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.iodine.low"
+                                    name="iodine.low" value="" placeholder="low" />
+                                    <input class="input-mini" type="number"
+                                    ng-model="fat.acids.iodine.high"
+                                    name="iodine.high" value="" placeholder="high"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                        <label class="control-label" for="SAPValue">Indice de saponification</label>
+                            <div class="controls">
+                            <input class="input-mini" type="number" ng-model="fat.SAPValue" name="SAPValue" value="" />
+                            </div>
+                        </div>
+
+                            <button class="btn btn-primary" name="" ng-click="save()">Save</button>
+                            <button class="btn btn-danger" name=""
+                                        ng-click="delete()">Delete</button>
+                     </form>
+            </div>
+        </div> 
     </div>
-    </div><!--/span-->
-    <div class="span9">
-        <div class="row-fluid">
-        <div class="span4" >
-        <h2>Ajouter Base</h2>
-        <form class="form" ng-model="fat"> 
-            <label>Nom</label>
-                <input ng-model="fat.name" name="name" value="" />
-            <label>Indice de saponification</label>
-                <input type="number" ng-model="fat.SAPValue" name="SAPValue" value="" />
-            <label>description</label>
-                <textarea type="text" name="description"
-                ng-model="fat.description" value="" ></textarea>
-            <button class="btn" name="" ng-click="save()">Save</button>
-        </form>
-
-                </div>
-                <div class="span4" >
-<h3>{{fat.name}}</h3>
-<p>{{fat.description}}</p>
-        </div>
-        </div>
     <hr>
-
     <footer>
-    <p>Some footer... 2012</p>
+        <p>Some footer... 2012</p>
     </footer>
-
-</div><!--/.fluid-container-->
-
+</div>
 
