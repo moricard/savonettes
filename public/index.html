@@ -18,7 +18,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="#">La savonette</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
               Logged in as <a href="#" class="navbar-link">Username</a>
@@ -32,43 +32,7 @@
         </div>
       </div>
     </div>
-
-    <div class="container-fluid" ng-controller='FatsController'>
-      <div class="row-fluid">
-        <div class="span3">
-        <div ng-include src="'partials/fatlist.html'">
-        </div>
-        </div><!--/span-->
-        <div class="span9">
-            <div class="row-fluid">
-           <div class="span4" >
-            <h2>Ajouter Base</h2>
-            <form class="form" ng-model="fat"> 
-                <label>Nom</label>
-                    <input ng-model="fat.name" name="name" value="" />
-                <label>Indice de saponification</label>
-                    <input type="number" ng-model="fat.SAPValue" name="SAPValue" value="" />
-                <label>description</label>
-                    <input type="text-area" name="description" ng-model="fat.description" value="" />
-                    <input type="checkbox" name="available" ng-model="fat.available" value="" />
-                <label>quantité</label>
-                    <input type="number" name="quantity" ng-model="fat.quantity" value="" />
-                    <button class="btn" name="" ng-click="save()">Save</button>
-            </form>
-
-                    </div>
-                    <div class="span4" >
-<h3>{{fat.name}}</h3>
-<p>{{fat.description}}</p>
-            </div>
-         </div>
-      <hr>
-
-      <footer>
-        <p>Some footer... 2012</p>
-      </footer>
-
-    </div><!--/.fluid-container-->
+<div ng-view></div>
 
 </body>
 </html>

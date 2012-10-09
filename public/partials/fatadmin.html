@@ -1,0 +1,36 @@
+<div class="container-fluid" ng-controller='FatsController'>
+    <div class="row-fluid">
+    <div class="span3">
+    <div ng-include src="'partials/fatlist.html'">
+    </div>
+    </div><!--/span-->
+    <div class="span9">
+        <div class="row-fluid">
+        <div class="span4" >
+        <h2>Ajouter Base</h2>
+        <form class="form" ng-model="fat"> 
+            <label>Nom</label>
+                <input ng-model="fat.name" name="name" value="" />
+            <label>Indice de saponification</label>
+                <input type="number" ng-model="fat.SAPValue" name="SAPValue" value="" />
+            <label>description</label>
+                <textarea type="text" name="description"
+                ng-model="fat.description" value="" ></textarea>
+            <button class="btn" name="" ng-click="save()">Save</button>
+        </form>
+
+                </div>
+                <div class="span4" >
+<h3>{{fat.name}}</h3>
+<p>{{fat.description}}</p>
+        </div>
+        </div>
+    <hr>
+
+    <footer>
+    <p>Some footer... 2012</p>
+    </footer>
+
+</div><!--/.fluid-container-->
+
+
