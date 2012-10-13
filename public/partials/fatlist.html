@@ -1,16 +1,13 @@
-<div class="well sidebar-nav">
-<ul class="">
-    <li class="">Base Fats 
-    <span class="pull-right">
-        <a href="#/fats/new">
-            <i class="icon-plus-sign"></i>
-        </a>
-        <a href="#/fats/edit">
-            <i class="icon-pencil"></i>
-        </a>
-    </span>
-    </li>
-    <li ng-repeat="fat in fats">
-    <a href="{{fat.id}}" ng-click="select(fat)">{{fat.name}}</a>   
-    </li>
-</ul>
+<h3>Base fats<small>
+            <a href="#/fats/edit" class="btn btn-mini"><i
+                    class="icon-pencil"></i> Edit</a></small></h3>
+<table class="table table-hover">
+    <thead>
+        <th>Name</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="fat in fats" ng-click="select(fat._id)">
+            <td>{{fat.name}}</td>
+        </tr>
+    </tbody>
+</table>

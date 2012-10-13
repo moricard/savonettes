@@ -36,14 +36,14 @@ var BaseFatSchema = new Schema({
     description: String,
     SAPValue: Number,
     acids: {
-        lauric:     {low: Number, high: Number},
-        linoleic:   {low: Number, high: Number},
-        myristic:   {low: Number, high: Number},
-        oleic:      {low: Number, high: Number},
-        palmitic:   {low: Number, high: Number},
-        ricinoleic: {low: Number, high: Number},
-        stearic:    {low: Number, high: Number},
-        iodine:     {low: Number, high: Number},
+        lauric:     {name: {type: String, default: 'lauric'}, low: Number, high: Number},
+        linoleic:   {name: {type: String, default: 'linoleic'}, low: Number, high: Number},
+        myristic:   {name: {type: String, default: 'myristic'}, low: Number, high: Number},
+        oleic:      {name: {type: String, default: 'oleic'}, low: Number, high: Number},
+        palmitic:   {name: {type: String, default: 'palmitic'}, low: Number, high: Number},
+        ricinoleic: {name: {type: String, default: 'ricinoleic'}, low: Number, high: Number},
+        stearic:    {name: {type: String, default: 'stearic'}, low: Number, high: Number},
+        iodine:     {name: {type: String, default: 'iodine'}, low: Number, high: Number},
     }
 });
 

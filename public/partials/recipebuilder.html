@@ -1,0 +1,38 @@
+<div class="container-fluid" ng-controller='RecipesController'>
+    <div class="row-fluid">
+        <div class="page-header" id="bases">
+            <h2>Base fats</h2>
+        </div>
+        <div class="span8" ng-controller='FatsController'>
+            <div class="span4" ng-include src="'partials/fatlist.html'"></div>
+            <div class="span8" ng-show="true">
+                <h3>{{fat.name}}</h3>
+                <div class="row-fluid">
+                <table class="span6 table table-hover table-condensed">
+                    <thead>
+                        <th>fatty acid</th>
+                        <th>min</th>
+                        <th>max</th>
+                    </thead>
+                    <tbody> 
+                        <tr ng-repeat="acid in fat.acids">
+                            <td>{{acid.name}}</td>
+                            <td>{{acid.low + '%'}}</td>
+                            <td>{{acid.high + '%'}}</td> 
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="span6">{{fat.description}}
+                <button ng-click="addFat()" class="btn">
+                    <i class="icon-plus-sign"></i>
+                    Add to recipe</button></p>
+            </div>
+           </div>
+        </div>
+    </div>
+    <hr>
+    <footer>
+        <p>Some footer... 2012</p>
+    </footer>
+</div>
+
