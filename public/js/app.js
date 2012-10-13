@@ -2,21 +2,20 @@
 
 /* App Module */                                                                                                                                                                                                                          
 
-angular.module('savonette', ['fats', 'recipes']).
+var app = angular.module('savonette', ['fats', 'recipes']).
     config(function($routeProvider, $locationProvider) {                                                                                                                                                                                    
         $routeProvider.
-            when('/', {controller: HomeController, templateUrl: 'list.html'}).
-            //when('/recipes', {templateUrl: 'partials/recipes-list.html',   controller: RecipesListCtrl}).
-            when('/recipes/new', {templateUrl: 'partials/recipebuilder.html', controller: RecipesController}).
-            //when('/recipes/:recipeId', {templateUrl: 'partials/recipe-detail.html', controller: RecipeDetailCtrl}).
-            when('/fats/edit', {templateUrl: 'partials/fatadmin.html', controller: FatsController}).
+            when('/', {templateUrl: 'list.html'}).
+            when('/recipes/new', {templateUrl: 'partials/recipebuilder.html'}).
+            when('/fats/edit', {templateUrl: 'partials/fatadmin.html'}).
             when('/fats/edit/:id', {templateUrl: 'partials/fatadmin.html'}). 
-            when('/fats', {templateUrl: 'partials/fatdetail.html', controller: FatsController}).
-            when('/fats/new', {templateUrl: 'partials/fatadmin.html', controller: FatsController}).
-            otherwise({redirectTo: '/'});
+            when('/fats', {templateUrl: 'partials/fatdetail.html'}).
+            when('/fats/new', {templateUrl: 'partials/fatadmin.html'});
+            //otherwise({redirectTo: '/'});
+        //$locationProvider.html5Mode(true);
     });
 
-function FatsController($scope, $location, Fat, $routeParams){
+app.controller('FatsController', function($scope, $location, Fat, $routeParams){
     $scope.fats = Fat.query();
     var id = $routeParams.id;
     $scope.save = function(){
@@ -53,21 +52,17 @@ function FatsController($scope, $location, Fat, $routeParams){
     $scope.new = function(){
         $scope.fat = {};
     };
-};
+});
 
-function RecipesController($scope, Recipe){
+app.controller('RecipesController', function($scope, Recipe){
     $scope.recipes = Recipe.query();
     $scope.addFat = function(fat){
         
     }
-};
-function RecipeEditController($scope, Recipe){
+});
+app.controller('RecipeEditController', function($scope, Recipe){
     $scope.recipe = Recipe.get({id: $scope.recipe._id});
-};
-
-function HomeController($scope, $http){
-
-};
+});
 
 // Resources
 angular.module('fats', ['ngResource']).
