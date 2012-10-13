@@ -1,11 +1,16 @@
 <div class="well sidebar-nav">
 <ul class="">
-    <li class="">Base Fats <a class="pull-right" href="#/fats/new"
-        ng-click="new()"><i
-            class="icon-plus-sign"></i></a></li>
+    <li class="">Base Fats 
+    <span class="pull-right">
+        <a href="#/fats/new">
+            <i class="icon-plus-sign"></i>
+        </a>
+        <a href="#/fats/edit">
+            <i class="icon-pencil"></i>
+        </a>
+    </span>
+    </li>
     <li ng-repeat="fat in fats">
-        <a href="#/fats" ng-click="select(fat)">{{fat.name}}</a>   
-        <a class="pull-right" href="#"
-            ng-click="edit(fat)"><i class="icon-pencil"></i></a>
+    <a href="{{fat.id}}" ng-click="select(fat)">{{fat.name}}</a>   
     </li>
 </ul>

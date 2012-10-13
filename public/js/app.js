@@ -9,6 +9,7 @@ angular.module('savonette', ['fats', 'recipes']).
             //when('/recipes', {templateUrl: 'partials/recipes-list.html',   controller: RecipesListCtrl}).
             //when('/recipes/:recipeId', {templateUrl: 'partials/recipe-detail.html', controller: RecipeDetailCtrl}).
             when('/fats/edit', {templateUrl: 'partials/fatadmin.html', controller: FatsController}).
+            when('/fats/edit/:id', {templateUrl: 'partials/fatadmin.html'}). 
             when('/fats', {templateUrl: 'partials/fatdetail.html', controller: FatsController}).
             when('/fats/new', {templateUrl: 'partials/fatadmin.html', controller: FatsController}).
             otherwise({redirectTo: '/'});
@@ -40,9 +41,9 @@ function FatsController($scope, $location, Fat){
         $scope.fat = fat;
     };
 
-    $scope.edit = function(fat){
+    $scope.edit = function(){
         $location.path('/fats/edit');
-        $scope.fat = fat;
+        //$scope.fat = fat;
     };
 
     $scope.new = function(){
